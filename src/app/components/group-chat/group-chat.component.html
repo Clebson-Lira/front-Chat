@@ -1,0 +1,19 @@
+<div class="group-chat-container">
+  <div class="sidebar">
+    <button (click)="goToChat()">Chat Individual</button>
+    <button (click)="createGroup()">Criar Novo Grupo</button>
+    <button (click)="logout()">Sair</button>
+  </div>
+  <div class="chat-window">
+    <h2>Chat em Grupo</h2>
+    <div class="messages">
+      <div *ngFor="let msg of groupMessages" class="message">
+        {{ msg }}
+      </div>
+    </div>
+    <div class="message-input">
+      <input type="text" [(ngModel)]="groupMessage" placeholder="Digite sua mensagem para o grupo..." />
+      <button (click)="sendGroupMessage()" class="btn">Enviar</button>
+    </div>
+  </div>
+</div>
