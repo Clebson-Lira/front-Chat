@@ -5,13 +5,13 @@
     <button (click)="logout()">Sair</button>
   </div>
   <div class="chat-window">
-    <h2>Chat em Grupo</h2>
     <div class="messages">
       <div *ngFor="let msg of groupMessages" class="message">
-        {{ msg }}
+        <div class="message-text">{{ msg }}</div>
+        <!-- <div class="message-timestamp">{{ msg.timestamp | date:'shortTime' }}</div> -->
       </div>
     </div>
-    <div class="message-input">
+    <div class="input-container">
       <input type="text" [(ngModel)]="groupMessage" placeholder="Digite sua mensagem para o grupo..." />
       <button (click)="sendGroupMessage()" class="btn">Enviar</button>
     </div>

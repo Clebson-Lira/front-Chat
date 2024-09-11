@@ -6,10 +6,14 @@
     "front-Chat": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
+      "@schematics/angular:component": {}
       },
+      "styles": [
+        "node_modules/primeng/resources/themes/saga-blue/theme.css",
+        "node_modules/primeng/resources/primeng.min.css",
+        "node_modules/primeicons/primeicons.css",
+        "src/styles.scss"
+      ],
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",

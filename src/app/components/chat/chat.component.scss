@@ -1,105 +1,91 @@
 .chat-container {
   display: flex;
-  height: 75vh;
-  width: 50vw;
+  height: 90vh;
+  width: 100vw;
+  background-color: #e5ddd5; /* Cor de fundo semelhante ao WhatsApp */
 }
 
 .sidebar {
-  width: 25%;
+  width: 20%;
   background-color: #f0f0f0;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
-}
-
-.sidebar button {
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 20px;
-}
-
-.sidebar button:hover {
-  background-color: #0056b3;
+  border-right: 1px solid #ddd;
 }
 
 .chat-window {
-  width: 75%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  position: relative;
+  height: 100%;
 }
 
 .messages {
-  flex-grow: 1;
-  padding: 10px;
+  flex: 1;
   overflow-y: auto;
-  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .message {
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 10px;
   max-width: 60%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
   position: relative;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
 }
 
-.sent {
+.message.sent {
   background-color: #dcf8c6;
-  align-self: flex-end;
+  align-self: flex-end; /* Alinha a mensagem enviada à direita */
+  border-bottom-right-radius: 0;
 }
 
-.received {
-  background-color: #95c4eb;
-  align-self: flex-start;
+.message.received {
+  background-color: #ffffff;
+  align-self: flex-start; /* Alinha a mensagem recebida à esquerda */
+  border-bottom-left-radius: 0;
 }
 
 .message-text {
-  margin-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 5px; /* Adiciona espaço entre o texto e a hora */
 }
 
 .message-timestamp {
-  font-size: 0.8em;
-  color: #888;
-  position: absolute;
-  bottom: 5px;
-  right: 10px;
+  font-size: 10px;
+  color: #999;
+  align-self: flex-end; /* Alinha a hora à direita */
+  white-space: nowrap; /* Evita quebra de linha */
 }
 
 .input-container {
   display: flex;
-  // padding: 10px;
-  background-color: #f0f0f0;
-  position: absolute;
-  margin-top: 30px !important;
-  bottom: 0;
-  width: 100%;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  width: 90vw /* Garante que o container ocupe 100% da largura */
 }
 
 .input-container input {
-  flex-grow: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  flex: 1;
+  margin-right: 10px;
+  // width: 100%;
+
 }
 
 .input-container button {
-  margin-left: 10px;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #075e54; /* Cor do botão de envio similar ao WhatsApp */
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 50%;
 }
 
 .input-container button:hover {
-  background-color: #0056b3;
+  background-color: #128c7e;
 }

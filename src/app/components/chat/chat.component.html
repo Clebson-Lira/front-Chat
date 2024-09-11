@@ -1,20 +1,20 @@
 <div class="chat-container">
   <div class="sidebar">
-    <button (click)="goToGroupChat()">Grupos</button>
-    <button (click)="createGroup()">Criar Grupo</button>
-    <button (click)="logout()">Sair</button>
+    <button pButton type="button" label="Grupos" class="p-button-text p-button-plain" (click)="goToGroupChat()"></button>
+    <button pButton type="button" label="Sair" class="p-button-text p-button-danger" (click)="logout()"></button>
   </div>
+
   <div class="chat-window">
     <div class="messages" *ngFor="let message of messages">
-      <div class="message" [ngClass]="{'sent': message.sent, 'received': !message.sent}">
+      <div [ngClass]="{'sent': message.sent, 'received': !message.sent}" class="message">
         <div class="message-text">{{ message.text }}</div>
         <div class="message-timestamp">{{ message.timestamp | date:'shortTime' }}</div>
       </div>
     </div>
 
     <div class="input-container">
-      <input type="text" [(ngModel)]="newMessage" placeholder="Digite uma mensagem..." />
-      <button (click)="sendMessage()">Enviar</button>
+      <input pInputText type="text" [(ngModel)]="newMessage" placeholder="Digite uma mensagem..." />
+      <button pButton type="button" icon="pi pi-send" class="p-button-rounded p-button-primary" (click)="sendMessage()"></button>
     </div>
   </div>
 </div>
