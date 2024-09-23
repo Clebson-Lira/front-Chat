@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
- private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3000'; // Substitua pela URL do seu backend
 
   constructor(private http: HttpClient) {}
 
@@ -28,7 +28,6 @@ export class AuthService {
         `Código do erro ${error.status}, ` +
         `corpo do erro: ${error.error}`);
     }
-    return throwError(
-      'Algo deu errado; por favor, tente novamente mais tarde.');
+    return throwError(error);
   }
 }

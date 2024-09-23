@@ -1,15 +1,27 @@
 <div class="login-container">
   <h2>Entrar</h2>
-  <form (ngSubmit)="login()">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="form-group">
       <label for="name">Nome</label>
-      <input type="text" id="name" [(ngModel)]="name" name="name" required />
+      <input pInputText type="text" id="name" formControlName="name" required />
+      <div *ngIf="loginForm.get('name')?.invalid && loginForm.get('name')?.touched" class="error-message">
+        Nome é obrigatório.
+      </div>
+    </div>
+    <div *ngIf="usuarioInvalid" class="error-message">
+      Usuário inválido. Tente novamente.
     </div>
     <div class="form-group">
       <label for="password">Senha</label>
-      <input type="password" id="password" [(ngModel)]="password" name="password" required />
+      <p-password id="password" formControlName="password" [feedback]="true" required></p-password>
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+        Senha é obrigatória.
+      </div>
     </div>
-    <button type="submit" class="btn">Entrar</button>
+    <div *ngIf="invalidPassword" class="error-message">
+      Senha inválida. Tente novamente.
+    </div>
+    <button pButton type="submit" label="Entrar" class="btn" [disabled]="loginForm.invalid"></button>
   </form>
-  <button (click)="goToRegister()" class=" registre">Cadastre-se</button>
+  <button pButton type="button" label="Cadastre-se" class="registre" (click)="goToRegister()"></button>
 </div>
