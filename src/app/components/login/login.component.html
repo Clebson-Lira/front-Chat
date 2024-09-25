@@ -1,27 +1,32 @@
-<div class="login-container">
-  <h2>Entrar</h2>
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <div class="form-group">
-      <label for="name">Nome</label>
-      <input pInputText type="text" id="name" formControlName="name" required />
-      <div *ngIf="loginForm.get('name')?.invalid && loginForm.get('name')?.touched" class="error-message">
-        Nome é obrigatório.
+<div class="p-d-flex p-jc-center" style="height: 100vh; width: 50vh; margin: auto;
+  margin-top: 100px;">
+  <p-card header="Entrar" class="login-card login">
+    <!-- Formulário de login -->
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="p-fluid ">
+        <div class="p-field">
+          <label for="name">Nome</label>
+          <input pInputText type="text" id="name" formControlName="name" required />
+          <p-message *ngIf="loginForm.get('name')?.invalid && loginForm.get('name')?.touched" severity="error" text="Nome é obrigatório."></p-message>
+        </div>
+
+        <div *ngIf="usuarioInvalid" class="p-field">
+          <p-message severity="error" text="Usuário inválido. Tente novamente."></p-message>
+        </div>
+
+        <div class="p-field mt-3 mb-3">
+          <label for="password">Senha</label>
+          <p-password id="password" formControlName="password" [feedback]="true" required></p-password>
+          <p-message *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" severity="error" text="Senha é obrigatória."></p-message>
+        </div>
+
+        <div *ngIf="invalidPassword" class="p-field">
+          <p-message severity="error" text="Senha inválida. Tente novamente."></p-message>
+        </div>
+
+        <button pButton type="submit" label="Entrar" class="p-mt-3 mb-3" [disabled]="loginForm.invalid"></button>
+        <button pButton type="button" label="Cadastre-se" class="p-button-outlined p-mt-2" (click)="goToRegister()"></button>
       </div>
-    </div>
-    <div *ngIf="usuarioInvalid" class="error-message">
-      Usuário inválido. Tente novamente.
-    </div>
-    <div class="form-group">
-      <label for="password">Senha</label>
-      <p-password id="password" formControlName="password" [feedback]="true" required></p-password>
-      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
-        Senha é obrigatória.
-      </div>
-    </div>
-    <div *ngIf="invalidPassword" class="error-message">
-      Senha inválida. Tente novamente.
-    </div>
-    <button pButton type="submit" label="Entrar" class="btn" [disabled]="loginForm.invalid"></button>
-  </form>
-  <button pButton type="button" label="Cadastre-se" class="registre" (click)="goToRegister()"></button>
+    </form>
+  </p-card>
 </div>

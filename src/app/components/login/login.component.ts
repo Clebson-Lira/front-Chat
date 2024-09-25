@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
+import { MessageModule } from 'primeng/message';
+import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,9 @@ import { ButtonModule } from 'primeng/button';
     HttpClientModule,
     InputTextModule,
     PasswordModule,
-    ButtonModule
+    ButtonModule,
+    MessageModule,
+    CardModule
   ],
   providers: [AuthService],
   templateUrl: './login.component.html',
